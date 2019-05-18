@@ -23,7 +23,7 @@ export const Card = styled.View`
   height: 100%;
   position: absolute;
   left: 0;
-  top: 380px;
+  top: 0;
   right: 0;
 `;
 
