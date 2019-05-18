@@ -33,9 +33,26 @@ const tabs = [
   },
 ];
 
-export default function Tabs() {
+export default function Tabs({ translateY }) {
   return (
-    <Container>
+    <Container
+      style={{
+        transform: [
+          {
+            translateY: translateY.interpolate({
+              inputRange: [0, 400],
+              outputRange: [0, 30],
+              extrapolate: 'clamp',
+            }),
+          },
+        ],
+        opacity: translateY.interpolate({
+          inputRange: [0, 250],
+          outputRange: [0.99, 0.3],
+          extrapolate: 'clamp',
+        }),
+      }}
+    >
       <TabsContainer>
         {tabs.map(tab => (
           <TabItem key={tab.id}>

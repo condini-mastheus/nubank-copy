@@ -30,9 +30,17 @@ const navs = [
   },
 ];
 
-export default function Menu() {
+export default function Menu({ translateY }) {
   return (
-    <Container>
+    <Container
+      style={{
+        opacity: translateY.interpolate({
+          inputRange: [0, 250],
+          outputRange: [0, 1],
+          extrapolate: 'clamp',
+        }),
+      }}
+    >
       <Code>
         <QRCode value="https://nubank.com.br/" size={80} bgColor="#8810AE" fgColor="#fff" />
       </Code>
